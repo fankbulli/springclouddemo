@@ -1,0 +1,31 @@
+server:
+  port: 9903
+
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: localhost:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@localhost:9900/eureka/
+
+spring:
+  application:
+    name: zuul-service
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
+  main:
+    allow-circular-references: true
+
+zuul:
+  routes:
+    server:
+      path: /client/**
+      serviceId: server-service
+      sensitiveHeaders: "*"
+    web:
+      path: /web/**
+      serviceId: web-service
+      sensitiveHeaders: "*"

@@ -1,0 +1,21 @@
+server:
+  port: 9902
+
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: localhost:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@localhost:9900/eureka/
+
+spring:
+  freemarker:
+    settings:
+      classic_compatible: true
+  application:
+    name: web-service
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false
