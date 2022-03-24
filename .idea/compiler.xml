@@ -10,10 +10,10 @@
         <module name="zuul" />
         <module name="web" />
         <module name="eureka" />
+        <module name="gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="gateway" target="1.8" />
       <module name="study" target="1.8" />
     </bytecodeTargetLevel>
   </component>
